@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skillupjava-cicd-service
+  labels:
+    app: skillupjava-cicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skillupjava-cicd
+  template:
+    metadata:
+      labels:
+        app: skillupjava-cicd
+    spec:
+      containers:
+        - name: skillupjava-cicd
+          image: aananthgopalan965/skillupjava-cicd:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8786
